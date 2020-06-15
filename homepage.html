@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <script src="script/homepage.js"></script>
+    <script src="script/filter.js"></script>
+    <link rel="stylesheet" href="css/homepage.css">
+</head>
+<body ng-app='myModule' >
+    <div ng-controller='myController'> 
+    
+<!-- ===================table creation================ -->
+Rows to display : <input type="number" step="1" min="0" max=7 ng-model="rowlimit"/>
+orderBy:<select ng-model="sortColumn">
+    <div     
+            <option value="name">Name Asc </option>
+            <option value="gender"> gender Asc</option>
+            <option value="dob"> dob Asc</option>
+            <option value="-salary"> salary Dsc</option>
+        </select>
+<br/><br/>
+
+search: <input type="text" placeholder="search name  and gender" ng-model="searchText" />
+<!-- <input type="text" placeholder="search name" ng-model="searchText.name" /> -->
+<!-- <input type="checkbox" ng-model="exactMatch"/>Exact Match -->
+
+<br/><br/>
+hide salary: <input type="checkbox" ng-model="hidesalary"/>
+<br/><br/>
+<div ng-include="'html/table.html'"></div>
+</div>
+
+<!-- ======================== event in angularjs==================== -->
+
+<!-- <table>
+    <thead>
+        <th>technology</th>
+        <th>likes</th>
+        <th>dislike</th>
+
+    </thead>
+    <tbody ng-repeat="tech in technologies">
+        <td>{{tech.technology}}</td>
+        <td>{{tech.like}}</td>
+        <td>{{tech.dislikes}}</td>
+       <td> <button ng-click="onlike(tech)">likes</button></td>
+      <td> <button ng-click="ondislike(tech)">Unlikes</button></td>
+    </tbody>
+
+</table>
+ -->
+<!-- ==================================filters in angularjs===================== -->
+
+
+
+
+</body>
+</html>

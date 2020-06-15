@@ -1,0 +1,34 @@
+<table>
+    <thead>
+    <tr>
+        <th ng-click="SortData('name')">
+            name<div ng-class="getSortClass('name')"></div>
+        </th>
+        <th>
+            Lastname
+        </th>
+        <th ng-click="SortData('gender')">
+            gender<div ng-class="getSortClass('gender')"></div>
+        </th>
+        <th ng-hide="hidesalary" ng-click="SortData('salary')">
+            salary(number)<div ng-class="getSortClass('salary')"></div>
+        </th>
+        <th ng-hide="hidesalary">
+            Salary(currency)
+        </th>
+        <th  ng-click="SortData('dob')">
+            DOB<div ng-class="getSortClass('dob')"></div>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="emp in employes|limitTo:rowlimit|orderBy:sortColumn:reversesort|filter:searchText:exactMatch">
+            <td>{{emp.name|uppercase}}</td>
+            <td>{{emp.lastname}}</td>
+            <td>{{emp.gender|gender}}</td>
+            <td ng-hide="hidesalary">{{emp.salary|number:2}}</td>
+            <td ng-hide="hidesalary">{{emp.salary|currency:"Rs":1}}</td>
+            <td>{{emp.dob|date:"dd/MM/yyyy"}}</td>
+        </tr>
+    </tbody>
+</table>
