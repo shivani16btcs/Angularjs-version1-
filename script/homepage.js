@@ -1,6 +1,6 @@
 let app = angular.module("myModule", []);
 
-app.controller("myController", ($scope, $http) => {
+app.controller("myController", ($scope) => {
 
 //======================= table creation=======================
 
